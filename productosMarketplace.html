@@ -1,0 +1,147 @@
+<html lang="en">
+    <head>
+        <link rel="icon" href="recursos/favicon/bicla.ico">
+        <meta charset="UTF-8">
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Compra con Bootstrap</title>
+    
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
+        <link rel="stylesheet" href="colores.css">
+    
+        <style>
+            .comprar-btn {
+                background-image: linear-gradient(10deg,#8a57ea 50%,#32c5ff);
+                color: #fff; 
+            }
+    
+            @media screen and (min-width: 901px){
+                .padding {
+                  padding: 6rem 17rem !important;
+                 }
+            }
+
+            @media screen and (max-width: 500px){
+	            .padding {
+            	   padding: 7rem 0rem !important;
+        	    }
+            }       
+
+            @media screen and (max-width: 900px){
+                .padding {
+                    padding: 7rem 3rem !important;
+	            }
+
+            }
+    
+            .form-control:focus {
+                box-shadow: 10px 0px 0px 0px #ffffff !important;
+                border-color: #4ca746;
+            }
+        </style>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div style="display: flex;">
+                    <img rel="logo" width='50px' style="margin: 0 10;" src="recursos/favicon/logoClaro.png">
+                    <div class="logo">Bike Market</div>
+                </div>
+                <ul class="menu">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="productosMarketplace.html">Productos</a></li>
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="contactanos.html">Contáctanos</a></li>
+                    <li><a href="inicio.html#bloogs">Blog</a></li>
+                    <svg xmlns="http://www.w3.org/2000/svg" id='iconoUsuario' width="40" height="40" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      </svg>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </header>
+        <div id="contenedorGrid">
+        </div>
+        <div class="contenedorInfoProducto">
+            <div id="funciones">
+                <div id="añadir" onclick="añadirCard();">Añadir</div>
+                <div id="cuponDescuento">Descuento</div>
+            </div>
+            <div class="info">
+                <div id ='titleProducto' class="ninfo" height="20%">¡BIENVENIDO!</div>
+                <div id ='descripcionProducto' class="ninfo ">Para obtener un codigo de descuento, siguenos en nuestras redes socuales en ´contactanos´</div>
+                <div id ='especificacionesProducto' class="ninfo">
+                    Estas impresionantes caracteristicas solo las consigues en bike market, estate al tanto de todos los descuentos que semana a semana realizamos.
+                </div>
+                <div id ='video-descripcion' class="ninfo">
+                    <iframe id='iframeVideo' class="video ninfo" width="560" height="315" src="https://www.youtube.com/embed/QUS-KbCAymk?si=8PFwsrDL_62f7ckU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div id="origenInfo">0</div>
+                </div> 
+                <button id="comprar" data-toggle="modal" data-target="#comprarModal">comprar</button>
+            </div>
+        </div>
+        <div id='comprarModal' class="padding modal">
+            <div class="row modal-content">
+                <div class="container-fluid d-flex justify-content-center">
+                    <div class="col-sm-8 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>PAGO CON TARJETA DE CRÉDITO/DÉBITO</span>
+                                    </div>
+                                    <div class="col-md-6 text-right" style="margin-top: -5px;">
+                                        <img src="https://img.icons8.com/color/36/000000/visa.png">
+                                        <img src="https://img.icons8.com/color/36/000000/mastercard.png">
+                                        <img src="https://img.icons8.com/color/36/000000/amex.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="height: auto">
+                                <div class="form-group">
+                                    <label for="cc-number" class="control-label">NÚMERO DE TARJETA</label>
+                                    <input id="cc-number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required="">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cc-exp" class="control-label">CADUCIDAD DE LA TARJETA</label>
+                                            <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cc-cvc" class="control-label">CARD CVC</label>
+                                            <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="numeric" class="control-label">NOMBRE DEL TITULAR DE LA TARJETA</label>
+                                    <input type="text" class="input-lg form-control">
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn comprar-btn btn-lg form-control"  onclick="confirmPurchase()">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
